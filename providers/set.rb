@@ -24,6 +24,9 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
+
+include Chef::Ruby::ScriptHelpers
+
 def whyrun_supported?
   true
 end
@@ -64,4 +67,20 @@ action :set do
     new_resource.updated_by_last_action(true)
   end
 
+
+  if new_resource.install_bundler
+
+    converge_by("Installing bundler for user #{new_resource.username} in ruby #{new_resource.definition}") do
+
+      if exec_in_ruby_version("gem list", new_resource.definition, new_resource.username).lines.grep(/^bundler.*$/).empty?
+        Chef::Log.info("Installing bundler for user #{new_resource.username} in ruby #{new_resource.definition}")
+        exec_in_ruby_version("gem install bundler --no-rdoc --no-ri", new_resource.definition, new_resource.username)
+        new_resource.updated_by_last_action(true)
+      else
+        Chef::Log.debug("bundler for user #{new_resource.username} in ruby #{new_resource.definition} already installed")
+      end
+
+    end
+
+  end
 end
