@@ -105,6 +105,7 @@ Resources/Providers
 #### Attribute Parameters
 - **definition:** name attribute, define ruby version. Should be in ruby-build definition list;
 - **username:** target user.
+- **install_bundler:** if true, bundler will be installed. Default is true.
 
 Recipes
 -----
