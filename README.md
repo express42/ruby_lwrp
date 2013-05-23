@@ -1,14 +1,38 @@
 ruby Cookbook
 =============
-Cookbook *ruby* builds various versions of ruby and installs them to */opt/rubies*. It uses [ruby-build](https://github.com/sstephenson/ruby-build) to build and install ruby and [chruby](https://github.com/postmodern/chruby) for switching between installed ruby versions.
 
-Usage
------
-You must include `recipe[ruby]` to you run list or via `include_recipe`. If you don't want build ruby or use chruby, you may use `recipe[ruby::ruby_build]` or `recipe[ruby::chruby]` recipes,
+Description
+-----------
+Cookbook *ruby* builds various versions of ruby and installs them to */opt/rubies*. It uses [ruby-build](https://github.com/sstephenson/ruby-build) to build and install ruby and [chruby](https://github.com/postmodern/chruby) for switching between installed ruby versions.
 
 Requirements
 ------------
 - This cookbook version (0.1.x) tested only on Debian squeeze and Ubuntu 12.04 LTS, but may work on other Debian-based OS.
+
+Usage
+-----
+You must include `recipe[ruby::default]` to you run list or via `include_recipe`. If you don't want build ruby or use chruby, you may use `recipe[ruby::ruby_build]` or `recipe[ruby::chruby]` recipes.
+
+### Example ruby 1.9.3-p392 setup: ###
+
+	include_recipe "ruby::default"
+
+	ruby_install "1.9.3-p392" do
+		action :install
+	end
+	ruby_set "1.9.3-p392" do
+		action :set
+		username "alice"
+	end
+
+Recipes
+-----
+#### ruby_build
+Installs the ruby-build to /opt/ruby-build and prepares Chef to use `ruby_install` LWRP.
+#### ruby::chruby
+Installs the Chruby to /opt/chruby and prepares Chef to `ruby_set` the LWRP.
+#### ruby::default
+Includes `ruby_build` and `chruby` recipes.
 
 Attributes
 ----------
@@ -89,12 +113,13 @@ Attributes
 
 Resources/Providers
 -------------------
+
 ### ruby_install
 ##### Actions
 - **install:** builds and installs ruby, includes chruby fuctions via /etc/profile.d/
 
 #### Attribute Parameters
-- **definition:** name attribute, defines ruby version. Should be in ruby-build definition list;
+- **definition:** This attribute defines ruby version. Should be in ruby-build definition list;
 - **prefix:** Set install prefix for ruby-build, default is */opt/rubies*;
 - **build_ruby:** Build ruby from sources via ruby-build. *True* by default. If false, try to install package ruby-\<definition\>.
 
@@ -107,14 +132,7 @@ Resources/Providers
 - **username:** target user.
 - **install_bundler:** if true, bundler will be installed. Default is true.
 
-Recipes
------
-#### ruby_build
-Installs the ruby-build to /opt/ruby-build and prepares Chef to use the LWRPs.
-#### ruby::chruby
-Installs the Chruby to /opt/chruby and prepares Chef to use the LWRPs.
-#### ruby::default
-Includes `ruby_build` and `chruby` recipes.
+
 
 License and Authors
 -------------------
