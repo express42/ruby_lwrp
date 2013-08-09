@@ -55,7 +55,6 @@ action :set do
     action :nothing
     content new_resource.definition
     owner new_resource.username
-    group new_resource.username
     mode "0644"
     backup false
   end
