@@ -60,8 +60,8 @@ Attributes
   <tr>
     <td><tt>['ruby']['ruby_build']['git_ref']</tt></td>
     <td>String</td>
-    <td>ruby_build git ref</td>
-    <td>master</td>
+    <td><strong>Required</strong>ruby_build git ref</td>
+    <td>Not set</td>
   </tr>
   <tr>
     <td><tt>['ruby']['ruby_build']['install_pkg']</tt></td>
@@ -100,8 +100,8 @@ Attributes
   <tr>
     <td><tt>['ruby']['chruby']['git_ref']</tt></td>
     <td>String</td>
-    <td>chruby git ref</td>
-    <td>master</td>
+    <td><strong>Required</strong>. chruby git ref</td>
+    <td>Not set</td>
   </tr>
   <tr>
     <td><tt>['ruby']['chruby']['install_pkg']</tt></td>
