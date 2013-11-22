@@ -40,9 +40,6 @@ execute "install_ruby-build" do
   environment "PREFIX" => ruby_build_install_path
   command "./install.sh"
   action :nothing
-  not_if do
-    ::File.exists?("#{ruby_build_install_path}/bin/ruby-build")
-  end
 end
 
 git ruby_build_path do
