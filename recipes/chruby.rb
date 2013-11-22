@@ -40,13 +40,13 @@ execute "install_chruby" do
   environment "PREFIX" => chruby_install_path
   command "make install"
   action :nothing
-  not_if do 
+  not_if do
     ::File.exists?("#{chruby_install_path}/bin/chruby-exec")
   end
 end
 
 git chruby_path do
-  action :checkout
+  action :sync
   repository chruby_repository
   reference chruby_reference
   notifies :run, "execute[install_chruby]", :immediately
