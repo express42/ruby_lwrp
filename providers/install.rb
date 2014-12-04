@@ -32,10 +32,11 @@ action :install do
 
   ruby_build_install_path = node['ruby']['ruby_build']['install_path']
 
-
   if new_resource.build_ruby
 
-    unless ::File.exists?("#{new_resource.prefix}/#{new_resource.definition}/bin/ruby")
+    if ::File.exist?("#{new_resource.prefix}/#{new_resource.definition}/bin/ruby")
+      Chef::Log.info("Ruby #{new_resource.definition} already installed into #{new_resource.prefix}/#{new_resource.definition}")
+    else
       Chef::Log.info("Installing ruby #{new_resource.definition}...")
 
       execute "ruby_install-#{new_resource.definition}" do
@@ -43,8 +44,6 @@ action :install do
       end.run_action(:run)
 
       new_resource.updated_by_last_action(true)
-    else
-      Chef::Log.info("Ruby #{new_resource.definition} already installed into #{new_resource.prefix}/#{new_resource.definition}")
     end
 
   else

@@ -35,10 +35,10 @@ node['ruby']['ruby_build']['install_pkgs'].each do |pkg|
   package pkg
 end
 
-execute "install_ruby-build" do
+execute 'install_ruby-build' do
   cwd ruby_build_path
-  environment "PREFIX" => ruby_build_install_path
-  command "./install.sh"
+  environment 'PREFIX' => ruby_build_install_path
+  command './install.sh'
   action :nothing
 end
 
@@ -46,5 +46,5 @@ git ruby_build_path do
   action :sync
   repository ruby_build_repository
   reference ruby_build_reference
-  notifies :run, "execute[install_ruby-build]", :immediately
+  notifies :run, 'execute[install_ruby-build]', :immediately
 end

@@ -24,7 +24,6 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-
 include Chef::Ruby::ScriptHelpers
 
 def whyrun_supported?
@@ -41,12 +40,12 @@ action :set do
     action :nothing
     block do
       if ::File.directory?(home_directory)
-        ::File.open("#{home_directory}/.profile", 'a+') { |file|
-            unless file.read =~ /#{profile_content}/
-              file.seek(0,IO::SEEK_END)
-              file.puts(profile_content)
-            end
-        }
+        ::File.open("#{home_directory}/.profile", 'a+') do |file|
+          unless file.read =~ /#{profile_content}/
+            file.seek(0, IO::SEEK_END)
+            file.puts(profile_content)
+          end
+        end
       end
     end
   end
@@ -55,25 +54,24 @@ action :set do
     action :nothing
     content new_resource.definition
     owner new_resource.username
-    mode "0644"
+    mode '0644'
     backup false
   end
-  
+
   add_to_profile_block.run_action(:create)
   ruby_version_file.run_action(:create)
 
-  if add_to_profile_block.updated_by_last_action? or ruby_version_file.updated_by_last_action?
+  if add_to_profile_block.updated_by_last_action? || ruby_version_file.updated_by_last_action?
     new_resource.updated_by_last_action(true)
   end
-
 
   if new_resource.install_bundler
 
     converge_by("Installing bundler for user #{new_resource.username} in ruby #{new_resource.definition}") do
 
-      if exec_in_ruby_version("gem list", new_resource.definition, new_resource.username).lines.grep(/^bundler.*$/).empty?
+      if exec_in_ruby_version('gem list', new_resource.definition, new_resource.username).lines.grep(/^bundler.*$/).empty?
         Chef::Log.info("Installing bundler for user #{new_resource.username} in ruby #{new_resource.definition}")
-        exec_in_ruby_version("gem install bundler --no-rdoc --no-ri", new_resource.definition, new_resource.username)
+        exec_in_ruby_version('gem install bundler --no-rdoc --no-ri', new_resource.definition, new_resource.username)
         new_resource.updated_by_last_action(true)
       else
         Chef::Log.debug("bundler for user #{new_resource.username} in ruby #{new_resource.definition} already installed")

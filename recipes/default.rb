@@ -24,5 +24,5 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-include_recipe "ruby::ruby_build"
-include_recipe "ruby::chruby"
+include_recipe 'ruby::ruby_build'
+include_recipe 'ruby::chruby'

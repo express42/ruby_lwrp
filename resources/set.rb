@@ -27,6 +27,6 @@
 actions :set
 default_action :set
 
-attribute :definition, :kind_of => String, :name_attribute => true
-attribute :username, :kind_of => String, :required => true
-attribute :install_bundler, :kind_of => [ FalseClass, TrueClass ], :default => true
+attribute :definition, kind_of: String, name_attribute: true
+attribute :username, kind_of: String, required: true
+attribute :install_bundler, kind_of: [FalseClass, TrueClass], default: true

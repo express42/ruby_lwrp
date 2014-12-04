@@ -27,7 +27,6 @@
 actions :install
 default_action :install
 
-
-attribute :definition, :kind_of => String, :name_attribute => true
-attribute :prefix, :kind_of => String, :default => "/opt/rubies"
-attribute :build_ruby, :kind_of => [ FalseClass, TrueClass ], :default => true
+attribute :definition, kind_of: String, name_attribute: true
+attribute :prefix, kind_of: String, default: '/opt/rubies'
+attribute :build_ruby, kind_of: [FalseClass, TrueClass], default: true
