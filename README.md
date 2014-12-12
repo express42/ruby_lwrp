@@ -66,9 +66,11 @@ ruby_set '1.9.3-p392' do
 end
 ```
 
+See fixture cookbook in `tests/fixtures/cookbooks`.
+
 
 # License and Maintainer
 
-Maintainer:: LLC Express 42 (<info@express42.com>)
+Maintainer:: LLC Express 42 (<cookbooks@express42.com>)
 
 License:: MIT

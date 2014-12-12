@@ -15,3 +15,5 @@ ruby_set '1.9.3-p392' do
   username 'alice'
 end
 ```
+
+See fixture cookbook in `tests/fixtures/cookbooks`.
