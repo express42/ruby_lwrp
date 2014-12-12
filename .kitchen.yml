@@ -16,5 +16,5 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[ruby]
+      - recipe[ruby_test]
     attributes:
