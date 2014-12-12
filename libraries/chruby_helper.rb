@@ -23,7 +23,7 @@ class Chef
           fail "#{chruby_exec_string} - returned #{status.exitstatus}, expected 0. STDOUT: #{out} STDERR: #{err}"
         end
 
-        return out
+        out
       end
     end
   end
