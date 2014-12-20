@@ -24,14 +24,14 @@ Cookbook `ruby` builds various versions of ruby and installs them to `/opt/rubie
 # Recipes
 
 * ruby::default - Includes `ruby_build` and `chruby` recipes.
-* ruby::chruby - Installs the Chruby to /opt/chruby and prepares Chef to `ruby_set` the LWRP.
-* ruby::ruby_build - Installs the ruby-build to /opt/ruby-build and prepares Chef to use `ruby_install` LWRP.
+* ruby::chruby - Installs the Chruby to `/opt/chruby` and prepares Chef to `ruby_set` the LWRP.
+* ruby::ruby_build - Installs the ruby-build to `/opt/ruby-build` and prepares Chef to use `ruby_install` LWRP.
 
 # LWRP
 
 ## ruby_install
 ### Actions
-- **install:** Builds and installs ruby, includes chruby functions via /etc/profile.d/.
+- **install:** Builds and installs ruby, includes chruby functions via `/etc/profile.d/`.
 
 ### Attribute Parameters
 - **definition:** This attribute defines ruby version. Should be in ruby-build definition list;
@@ -40,7 +40,7 @@ Cookbook `ruby` builds various versions of ruby and installs them to `/opt/rubie
 
 ## ruby_set
 ### Actions
-- **set:** Install chruby_auto helper to user .profile and create .rubyversion in user home directory.
+- **set:** Install chruby_auto helper to user's `.profile` and create `.rubyversion` in user's home directory.
 
 ### Attribute Parameters
 - **definition:** Name attribute, define ruby version. Should be in ruby-build definition list;
@@ -50,7 +50,7 @@ Cookbook `ruby` builds various versions of ruby and installs them to `/opt/rubie
 
 # Usage
 
-You must include `recipe[ruby::default]` to you run list or via `include_recipe`. If you don't want build ruby or use chruby, you may use `recipe[ruby::ruby_build]` or `recipe[ruby::chruby]` recipes.
+You must include `recipe[ruby::default]` to your run list or via `include_recipe`. If you don't want to build ruby or use chruby, you may use `recipe[ruby::ruby_build]` or `recipe[ruby::chruby]` recipes.
 
 ## Example of ruby 1.9.3-p392 setup:
 
