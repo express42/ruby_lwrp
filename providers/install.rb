@@ -29,7 +29,6 @@ def whyrun_supported?
 end
 
 action :install do
-
   ruby_build_install_path = node['ruby']['ruby_build']['install_path']
 
   if new_resource.build_ruby
@@ -54,5 +53,4 @@ action :install do
     ruby_package.run_action(:install)
     new_resource.updated_by_last_action(true) if ruby_package.updated_by_last_action?
   end
-
 end

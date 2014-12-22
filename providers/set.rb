@@ -31,7 +31,6 @@ def whyrun_supported?
 end
 
 action :set do
-
   chruby_install_path = node['ruby']['chruby']['install_path']
   home_directory = "#{node['ruby']['chruby']['home_prefix']}/#{new_resource.username}"
   profile_content = "source #{chruby_install_path}/share/chruby/auto.sh"
@@ -68,7 +67,6 @@ action :set do
   if new_resource.install_bundler
 
     converge_by("Installing bundler for user #{new_resource.username} in ruby #{new_resource.definition}") do
-
       if exec_in_ruby_version('gem list', new_resource.definition, new_resource.username).lines.grep(/^bundler.*$/).empty?
         Chef::Log.info("Installing bundler for user #{new_resource.username} in ruby #{new_resource.definition}")
         exec_in_ruby_version('gem install bundler --no-rdoc --no-ri', new_resource.definition, new_resource.username)
@@ -76,7 +74,6 @@ action :set do
       else
         Chef::Log.debug("bundler for user #{new_resource.username} in ruby #{new_resource.definition} already installed")
       end
-
     end
 
   end
