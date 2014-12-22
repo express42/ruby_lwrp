@@ -2,7 +2,7 @@
 
 ## ruby_install
 ### Actions
-- **install:** Builds and installs ruby, includes chruby functions via /etc/profile.d/.
+- **install:** Builds and installs ruby, includes chruby functions via `/etc/profile.d/`.
 
 ### Attribute Parameters
 - **definition:** This attribute defines ruby version. Should be in ruby-build definition list;
@@ -11,9 +11,9 @@
 
 ## ruby_set
 ### Actions
-- **set:** Install chruby_auto helper to user .profile and create .rubyversion in user home directory.
+- **set:** Install chruby_auto helper to user's `.profile` and create `.rubyversion` in user's home directory.
 
 ### Attribute Parameters
 - **definition:** Name attribute, define ruby version. Should be in ruby-build definition list;
-- **username:** Target user.
+- **username:** Target user;
 - **install_bundler:** If `true`, bundler will be installed. Default is `true`.

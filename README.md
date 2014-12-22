@@ -44,7 +44,7 @@ Cookbook `ruby` builds various versions of ruby and installs them to `/opt/rubie
 
 ### Attribute Parameters
 - **definition:** Name attribute, define ruby version. Should be in ruby-build definition list;
-- **username:** Target user.
+- **username:** Target user;
 - **install_bundler:** If `true`, bundler will be installed. Default is `true`.
 
 

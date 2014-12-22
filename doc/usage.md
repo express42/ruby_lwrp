@@ -1,6 +1,6 @@
 # Usage
 
-You must include `recipe[ruby::default]` to you run list or via `include_recipe`. If you don't want build ruby or use chruby, you may use `recipe[ruby::ruby_build]` or `recipe[ruby::chruby]` recipes.
+You must include `recipe[ruby::default]` to your run list or via `include_recipe`. If you don't want to build ruby or use chruby, you may use `recipe[ruby::ruby_build]` or `recipe[ruby::chruby]` recipes.
 
 ## Example of ruby 1.9.3-p392 setup:
 
