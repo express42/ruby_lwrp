@@ -1,3 +1,4 @@
+[![Cookbook Version](http://img.shields.io/cookbook/v/ruby_lwrp.svg)]('http://img.shields.io/cookbook/v/ruby\_lwrp.svg)
 [![Code Climate](https://codeclimate.com/github/express42-cookbooks/ruby_lwrp/badges/gpa.svg)](https://codeclimate.com/github/express42-cookbooks/ruby_lwrp)
 [![Build Status](https://travis-ci.org/express42-cookbooks/ruby_lwrp.svg?branch=master)](https://travis-ci.org/express42-cookbooks/ruby_lwrp)
 
