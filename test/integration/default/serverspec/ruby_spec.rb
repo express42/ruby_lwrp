@@ -42,12 +42,12 @@ describe file('/opt/rubies/2.1.5/bin/ruby') do
   it { should be_file }
 end
 
-describe file('/home/vagrant/.ruby-version') do
+describe file('/home/test_user/.ruby-version') do
   it { should be_file }
   it { should contain '2.1.5' }
 end
 
-describe file('/home/vagrant/.profile') do
+describe file('/home/test_user/.profile') do
   it { should be_file }
   it { should contain 'source /opt/chruby/share/chruby/auto.sh' }
 end
