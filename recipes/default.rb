@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: ruby
+# Cookbook Name:: ruby_lwrp
 # Recipe:: default
 #
 # Copyright 2013, LLC Express 42
@@ -24,5 +24,5 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-include_recipe 'ruby::ruby_build'
-include_recipe 'ruby::chruby'
+include_recipe 'ruby_lwrp::ruby_build'
+include_recipe 'ruby_lwrp::chruby'

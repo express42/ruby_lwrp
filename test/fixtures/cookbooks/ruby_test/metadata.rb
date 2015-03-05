@@ -1,4 +1,4 @@
 name 'ruby_test'
 
 depends 'apt'
-depends 'ruby'
+depends 'ruby_lwrp'

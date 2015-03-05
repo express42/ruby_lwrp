@@ -1,5 +1,5 @@
 include_recipe 'apt'
-include_recipe 'ruby'
+include_recipe 'ruby_lwrp'
 
 ruby_install '2.1.5' do
   action :install

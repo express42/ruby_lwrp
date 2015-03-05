@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: ruby
+# Cookbook Name:: ruby_lwrp
 # Recipe:: chruby
 #
 # Copyright 2013, LLC Express 42
