@@ -1,0 +1,20 @@
+---
+driver:
+  name: digitalocean
+
+driver_config:
+  private_networking: false
+  region: nyc3
+
+provisioner:
+  name: chef_zero
+  require_chef_omnibus: 11.18.6
+
+platforms:
+  - name: ubuntu-12-04-x64
+  - name: ubuntu-14-04-x64
+
+suites:
+  - name: default
+    run_list:
+      - recipe[ruby_test]
