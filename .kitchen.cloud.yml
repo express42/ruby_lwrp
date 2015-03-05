@@ -5,6 +5,7 @@ driver:
 driver_config:
   private_networking: false
   region: nyc3
+  size: 2g
 
 provisioner:
   name: chef_zero
