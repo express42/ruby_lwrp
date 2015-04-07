@@ -24,6 +24,9 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
+provides :ruby_install
+resource_name :ruby_install
+
 actions :install
 default_action :install
 

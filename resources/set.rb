@@ -24,6 +24,9 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
+provides :ruby_set
+resource_name :ruby_set
+
 actions :set
 default_action :set
 
