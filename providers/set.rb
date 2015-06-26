@@ -30,6 +30,8 @@ def whyrun_supported?
   true
 end
 
+provides :ruby_set
+
 action :set do
   chruby_install_path = node['ruby']['chruby']['install_path']
   home_directory = "#{node['ruby']['chruby']['home_prefix']}/#{new_resource.username}"

@@ -28,6 +28,8 @@ def whyrun_supported?
   true
 end
 
+provides :ruby_install
+
 action :install do
   ruby_build_install_path = node['ruby']['ruby_build']['install_path']
 
