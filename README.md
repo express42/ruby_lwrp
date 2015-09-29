@@ -28,6 +28,7 @@ Cookbook `ruby_lwrp` builds various versions of ruby and installs them to `/opt/
 * `node['ruby']['ruby_build']['git_url']` -  Defaults to `"git://github.com/sstephenson/ruby-build.git"`.
 * `node['ruby']['ruby_build']['git_ref']` -  Defaults to `"master"`.
 * `node['ruby']['ruby_build']['install_pkgs']` -  Defaults to `"%w(build-essential bison openssl libreadline6 libreadline6-dev zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev autoconf libc6-dev ssl-cert subversion git-core libffi-dev)"`.
+* `node['ruby']['ruby_build']['tmp_dir_path']` - Defaults to '"/tmp"'. It sets TMPDIR for ruby-build.
 
 # Recipes
 

@@ -32,6 +32,7 @@ provides :ruby_install
 
 action :install do
   ruby_build_install_path = node['ruby']['ruby_build']['install_path']
+  tmp_dir_path = node['ruby']['ruby_build']['tmp_dir']
 
   if new_resource.build_ruby
 
@@ -41,7 +42,7 @@ action :install do
       Chef::Log.info("Installing ruby #{new_resource.definition}...")
 
       execute "ruby_install-#{new_resource.definition}" do
-        command "#{ruby_build_install_path}/bin/ruby-build #{new_resource.definition} #{new_resource.prefix}/#{new_resource.definition}"
+        command "TMPDIR=#{tmp_dir_path} #{ruby_build_install_path}/bin/ruby-build #{new_resource.definition} #{new_resource.prefix}/#{new_resource.definition}"
       end.run_action(:run)
 
       new_resource.updated_by_last_action(true)
